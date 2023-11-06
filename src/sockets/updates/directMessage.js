@@ -14,10 +14,10 @@ module.exports.directMessageHandler = async (socket, data) => {
     // save direct message
     const message = await SaveDirectMessage(content, userId);
 
-    // check if the conversation is present oterwise create a new conversation
+    // check if the conversation is present otherwise create a new conversation
     const conversation = await CheckConversationPresent({
       userId,
-      revicerId: receiverUserId,
+      receiverId: receiverUserId,
     });
 
     if (conversation) {

@@ -21,16 +21,16 @@ const findConversationById = async (id) => {
 
 const findConversationByUsersId = async (usersId) => {
   const { userId, receiverUserId } = usersId;
+
   return await conversationModel.findOne({
     participants: { $all: [userId, receiverUserId] },
-    type: "DIRECT",
   });
 };
 
 const checkConversation = async (info) => {
-  const { userId, revicerId } = info;
+  const { userId, receiverId } = info;
   return await conversationModel.findOne({
-    participants: { $all: [userId, revicerId] },
+    participants: { $all: [userId, receiverId] },
   });
 };
 
